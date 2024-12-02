@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    padding: 20px;
+  }
+  
+  .image {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .googleButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  .googleLogo {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
