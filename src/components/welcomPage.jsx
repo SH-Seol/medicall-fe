@@ -1,27 +1,29 @@
 import React from "react";
-import "./../styles/WelcomePage.css"; // CSS 파일 임포트
+import welcomeImage from "../images/welimg.jpeg";
+import "../styles/WelcomePage.css";
 
 const WelcomePage = () => {
-  const handleGoogleLogin = () => {
-    console.log("Google 로그인 버튼 클릭!");
+  const handleKakaoLogin = () => {
+    console.log("카카오 로그인 버튼 클릭!");
+    // // 카카오 로그인 로직 추가 가능
+    // const KAKAO_CLIENT_ID = process.env.KAKAO_CLIENT_ID
+    // const REDIRECT_URI = process.REDIRECT_URI
+    // const kakaoAuthURL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+    window.location.href = "http://localhost:8080/oauth2/authorization/kakao";
   };
 
   return (
     <div className="container">
-      <img
-        src="https://via.placeholder.com/300x200.png?text=Doctor+Image"
-        alt="Doctor"
-        className="image"
-      />
+      {/* 이미지 */}
+      <img src={welcomeImage} alt="Welcome" className="image" />
+
+      {/* 텍스트 */}
       <h1 className="title">Medicall</h1>
       <p className="subtitle">환영합니다!</p>
-      <button className="googleButton" onClick={handleGoogleLogin}>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-          alt="Google Logo"
-          className="googleLogo"
-        />
-        Continue with Google
+
+      {/* 카카오 로그인 버튼 */}
+      <button className="button" onClick={handleKakaoLogin}>
+        카카오로 로그인
       </button>
     </div>
   );
