@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Loading from "./components/Loading";
-import LoginPage from "./components/LoginPage";
-import LoginTerm from "./components/LoginTerm";
+import Loading from "./components/auth/Loading";
+import LoginPage from "./components/auth/LoginPage";
+import LoginTerm from "./components/auth/LoginTerm";
 import MainPage from "./components/MainPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
