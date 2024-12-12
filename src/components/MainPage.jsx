@@ -18,11 +18,19 @@ const MainPage = () => {
     const navigate = useNavigate();
 
     const handleSearch = (e) => {
+        if(typeof e === "string") {
+            navigate(`/search?keyword=${encodeURIComponent(e.trim())}`);
+            return;
+        }
+        else if(e&& e.preventDefault) {
+            e.preventDefault();
+        }
         e.preventDefault();
         if (searchQuery.trim()) {
             navigate(`/search?keyword=${encodeURIComponent(searchQuery.trim())}`);
         }
     };
+
 
     const medicalDepartments = [
         { name: "피부과", image: skinImage },
@@ -121,7 +129,10 @@ const MainPage = () => {
                 <h2>진료과목</h2>
                 <div className="department-grid">
                     {medicalDepartments.map((department, index) => (
-                        <div className="department-card" key={index}>
+                        <div className="department-card"
+                             key={index}
+                             onClick={() => handleSearch(department.name)}
+                        >
                             <img
                                 className="department-image"
                                 src={department.image}
