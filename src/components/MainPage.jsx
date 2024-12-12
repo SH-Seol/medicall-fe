@@ -17,6 +17,13 @@ const MainPage = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            navigate(`/search?keyword=${encodeURIComponent(searchQuery.trim())}`);
+        }
+    };
+
     const medicalDepartments = [
         { name: "피부과", image: skinImage },
         { name: "내과", image: internalMedicineImage },
@@ -95,16 +102,18 @@ const MainPage = () => {
 
             <div className="search-section">
                 <div className="search-wrapper">
-                    <input
-                        type="text"
-                        className="search-input"
-                        placeholder="검색하기"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                    <button className="search-icon">
-                        <span role="img" aria-label="search">🔍</span>
-                    </button>
+                    <form onSubmit={handleSearch}>
+                        <input
+                            type="text"
+                            className="search-input"
+                            placeholder="검색하기"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <button className="search-icon">
+                            <span role="img" aria-label="search">🔍</span>
+                        </button>
+                    </form>
                 </div>
             </div>
 

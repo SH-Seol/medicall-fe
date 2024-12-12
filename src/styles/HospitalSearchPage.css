@@ -1,0 +1,109 @@
+/* 전체 컨테이너 */
+.hospital-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.hospital-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.hospital-header .back-button {
+    font-size: 20px;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hospital-header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* 검색 섹션 */
+.search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-section input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-button {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.filter-button.active {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+/* 병원 카드 */
+.hospital-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hospital-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.hospital-card:hover {
+    transform: translateY(-3px);
+}
+
+.hospital-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.hospital-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.hospital-info p {
+    margin: 5px 0;
+    color: #777;
+}
+
+.hospital-info .hospital-doctors span {
+    font-size: 14px;
+    color: #666;
+}

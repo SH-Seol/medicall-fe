@@ -5,6 +5,8 @@ import LoginPage from "./components/auth/LoginPage";
 import LoginTerm from "./components/auth/LoginTerm";
 import MainPage from "./components/MainPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import DoctorProfile from "./components/medical/DoctorProfile";
+import HospitalSearchPage from "./components/medical/HospitalSearchPage";
 
 const App = () => {
     return (
@@ -18,6 +20,12 @@ const App = () => {
 
                 {/* 약관 동의 페이지 */}
                 <Route path="/login/term" element={<LoginTerm />} />
+
+                {/* 의사 세부 사항 조회 페이지 */}
+                <Route path="/doctors" element={<DoctorProfile />} />
+
+                {/* 병원 검색 페이지 */}
+                <Route path="/search" element={<HospitalSearchPage />} />
 
                 {/* 보호된 경로: 토큰 없으면 /login으로 이동 */}
                 <Route
