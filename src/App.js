@@ -7,6 +7,8 @@ import MainPage from "./components/MainPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import DoctorProfile from "./components/medical/DoctorProfile";
 import HospitalSearchPage from "./components/medical/HospitalSearchPage";
+import PrescriptionList from "./components/medical/PrescriptionList";
+import QrPage from "./components/medical/QrPage";
 
 const App = () => {
     return (
@@ -22,11 +24,15 @@ const App = () => {
                 <Route path="/login/term" element={<LoginTerm />} />
 
                 {/* 의사 세부 사항 조회 페이지 */}
-                <Route path="/doctors" element={<DoctorProfile />} />
+                <Route path="/doctors/:doctorId" element={<DoctorProfile />} />
 
                 {/* 병원 검색 페이지 */}
                 <Route path="/search" element={<HospitalSearchPage />} />
 
+                {/* 처방전 목록 페이지 */}
+                <Route path="/prescriptions" element={<PrescriptionList />} />
+                {/* 처방전 qr 페이지 */}
+                <Route path="/prescriptions/:prescriptionId" element={<QrPage />} />
                 {/* 보호된 경로: 토큰 없으면 /login으로 이동 */}
                 <Route
                     path="/main"
