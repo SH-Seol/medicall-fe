@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../../styles/HospitalSearchPage.css";
+import HospitalImage from "../../images/hospital.png";
 
 const HospitalSearchPage = () => {
     const [hospitals, setHospitals] = useState([]);
@@ -71,8 +72,6 @@ const HospitalSearchPage = () => {
         }
     }, [searchQuery]);
 
-    // 필터링된 병원 목록 계산
-    // 필터링된 병원 목록 계산
     const filteredHospitals = hospitals.filter((hospital) => {
         // Safeguard against undefined 'name' and 'type'
         const hospitalName = hospital.name || "";
@@ -123,7 +122,7 @@ const HospitalSearchPage = () => {
                     filteredHospitals.map((hospital) => (
                         <div className="hospital-card" key={hospital.id}>
                             <img
-                                src={hospital.image || "https://via.placeholder.com/100"}
+                                src={hospital.image || HospitalImage}
                                 alt={`${hospital.name}`}
                                 className="hospital-image"
                             />

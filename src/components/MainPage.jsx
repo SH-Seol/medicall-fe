@@ -10,6 +10,7 @@ import familyMedicineImage from "../images/fam.jpg";
 import orientalMedicineImage from "../images/kor.jpeg";
 import entImage from "../images/ent.jpg";
 import ReconImage from "../images/recon.jpg";
+import DoctorImage from "../images/doctor2.png";
 
 const MainPage = () => {
     const [profile, setProfile] = useState(null);
@@ -44,7 +45,7 @@ const MainPage = () => {
 
     useEffect(() => {
         const profileUrl = process.env.REACT_APP_PROFILE_URL;
-        const doctorsUrl = process.env.REACT_APP_DOCTORS_URL;
+        const doctorsUrl = process.env.REACT_APP_MAIN_DOCTORS_URL;
         const accessToken = localStorage.getItem("accessToken");
 
         if (!accessToken) {
@@ -151,9 +152,11 @@ const MainPage = () => {
                         <span>📅</span>
                         <p>예약 확인</p>
                     </div>
-                    <div className="task-icon">
+                    <div className="task-icon"
+                         onClick={() => navigate("/prescriptions")}
+                    >
                         <span>💊</span>
-                        <p>약 처방</p>
+                        <p>처방전</p>
                     </div>
                     <div className="task-icon">
                         <span>📖</span>
@@ -170,16 +173,17 @@ const MainPage = () => {
                     </span>
                 </h2>
                 {filteredDoctors.map((doctor) => (
-                    <div className="doctor-card" key={doctor.id}>
+                    <div className="doctor-card" key={doctor.id}
+                    onClick={() => navigate(`/doctors/${doctor.id}`)}>
                         <img
                             className="doctor-image"
-                            src={doctor.image || "https://via.placeholder.com/50"}
+                            src={doctor.image || DoctorImage}
                             alt="의사 이미지"
                         />
                         <div className="doctor-info">
                             <p className="doctor-name">{doctor.name}</p>
-                            <p className="doctor-specialty">{doctor.specialty}</p>
-                            <p className="doctor-review">{doctor.review}</p>
+                            <p className="doctor-specialty">{doctor.major}</p>
+                            <p className="doctor-review">{doctor.hospital}</p>
                         </div>
                     </div>
                 ))}
