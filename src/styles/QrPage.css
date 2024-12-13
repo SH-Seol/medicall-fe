@@ -1,0 +1,79 @@
+.qr-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.qr-header {
+    position: absolute;
+    top: 0; /* 화면 최상단 */
+    left: 0;
+    display: flex; /* Flexbox 레이아웃 */
+    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: space-between; /* 버튼과 제목 독립 배치 */
+    width: 100%; /* 헤더 전체 폭 사용 */
+    padding: 10px 20px; /* 헤더 내부 여백 */
+    background-color: #ffffff; /* 헤더 배경색 */
+    border-bottom: 1px solid #ddd; /* 헤더 하단 경계선 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 약간의 그림자 */
+    z-index: 10; /* 다른 요소보다 위에 위치 */
+}
+.header-left {
+    flex: 0; /* 왼쪽 버튼의 크기 고정 */
+}
+
+.header-center {
+    position: absolute; /* 제목을 화면 중앙에 고정 */
+    left: 50%; /* 화면의 왼쪽에서 중앙으로 이동 */
+    transform: translateX(-50%); /* 제목의 폭 기준으로 중앙 정렬 */
+}
+
+.qr-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #007bff;
+}
+
+
+.qr-code-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code-image {
+    width: 256px;
+    height: 256px;
+    object-fit: contain;
+}
+
+.qr-loading,
+.qr-error {
+    color: #6c757d;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.qr-no-code {
+    color: #dc3545;
+    font-size: 16px;
+}
