@@ -1,18 +1,29 @@
 // src/DoctorProfile.jsx
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import doctorImage from "../../images/doctor2.png"; // 로컬 이미지 import
+import doctorImage from "../../images/doctor2.png";
+import {useParams} from "react-router-dom"; // 로컬 이미지 import
 
 
-const DoctorProfile = ({ doctorId }) => {
+const DoctorProfile = () => {
+    const { doctorId } = useParams();
     const [doctorData, setDoctorData] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const getAccessToken = () => {
+        return localStorage.getItem("accessToken");
+    };
 
     // Fetch doctor data from the API
     useEffect(() => {
         const fetchDoctorData = async () => {
             try {
-                const response = await axios.get(`/api/v1/medical/${doctorId}`);
+                const accessToken = getAccessToken();
+                const response = await axios.get(`http://localhost:8080/api/v1/medical/${doctorId}`,{
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                });
                 setDoctorData(response.data);
                 setLoading(false);
             } catch (error) {
@@ -41,7 +52,7 @@ const DoctorProfile = ({ doctorId }) => {
 };
 
 const DoctorCard = ({ doctor }) => {
-    const { hospital, patientsTreated, experience, likes } = doctor;
+    const { name, hospital, patientsTreated, experience, likes } = doctor;
 
     return (
         <div style={styles.card}>
@@ -52,7 +63,7 @@ const DoctorCard = ({ doctor }) => {
 
             {/* Doctor Details */}
             <div style={styles.info}>
-                <h3>{hospital} 선생님</h3>
+                <h3>{name} 선생님</h3>
                 <p>
                     <strong>병원:</strong> {hospital}
                 </p>
